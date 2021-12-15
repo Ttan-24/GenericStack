@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using GenericStackLibrary;
 using System.Diagnostics;
+using System.IO;
 
 namespace GenericStack
 {
@@ -134,9 +135,22 @@ namespace GenericStack
                 //MainTextBlock.Text.Remove(0);
                 myStack.pop();
             }
-            // print the whole stack
+            // print the whole stack 
             MainTextBlock.Text = myStack.toString();
-            MainGrid.Focus();
+            MainGrid.Focus(); 
+        }
+
+        private void OpenButtonEvent(object sender, RoutedEventArgs e)
+        {
+            // Read the file as one string.
+            string text = System.IO.File.ReadAllText(FileTextBox.Text);
+            MainTextBlock.Text = text;
+        }
+
+        private void SaveAsButtonEvent(object sender, RoutedEventArgs e)
+        {
+            File.WriteAllTextAsync(FileTextBox.Text, MainTextBlock.Text);
+
         }
     }
 }
