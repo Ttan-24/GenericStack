@@ -42,17 +42,7 @@ namespace GenericStack
             //timer.Start();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (HelloButton.IsChecked == true)
-            {
-                MainTextBlock.Text = "Hello";
-            }
-            else if (GoodbyeButton.IsChecked == true)
-            {
-                MainTextBlock.Text = "Goodbye";
-            }
-        }
+        
 
         private void HandleTick(object sender, EventArgs e)
         {

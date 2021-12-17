@@ -7,14 +7,11 @@
         mc:Ignorable="d"
         Title="Greetings" Height="450" Width="800">
     <Grid x:Name="MainGrid" Focusable="True" KeyDown="HandleKey" KeyUp="MainGrid_KeyUp">
-        <TextBlock x:Name="MainTextBlock" HorizontalAlignment="Center" Height="76" Text="Hi This is my Stack Program" TextWrapping="Wrap" VerticalAlignment="Top" Width="622" Margin="0,70,0,0"/>
-        <RadioButton x:Name="GoodbyeButton" Content="Goodbye Button" HorizontalAlignment="Left" Margin="524,177,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="HelloButton" Content="Hello Button" IsChecked="True"  HorizontalAlignment="Left" Margin="144,177,0,0" VerticalAlignment="Top"/>
-        <Button Content="Display" HorizontalAlignment="Center" Margin="0,247,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="187,310,0,0" VerticalAlignment="Top" Height="47" Width="83" Click="ClearButtonEvent"/>
-        <Button Content="Open" HorizontalAlignment="Left" Margin="346,310,0,0" VerticalAlignment="Top" Width="96" Height="47" Click="OpenButtonEvent"/>
-        <Button Content="Save as" HorizontalAlignment="Left" Margin="524,277,0,0" VerticalAlignment="Top" Width="122" Height="56" Click="SaveAsButtonEvent"/>
-        <TextBox x:Name="FileTextBox" HorizontalAlignment="Left" Margin="524,353,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="33"/>
+        <TextBlock x:Name="MainTextBlock" HorizontalAlignment="Center" Height="187" Text="Hi This is my Stack Program" TextWrapping="Wrap" VerticalAlignment="Top" Width="622" Margin="0,70,0,0"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="157,282,0,0" VerticalAlignment="Top" Height="46" Width="83" Click="ClearButtonEvent"/>
+        <Button Content="Open" HorizontalAlignment="Left" Margin="334,282,0,0" VerticalAlignment="Top" Width="83" Height="47" Click="OpenButtonEvent"/>
+        <Button Content="Save as" HorizontalAlignment="Left" Margin="524,282,0,0" VerticalAlignment="Top" Width="83" Height="47" Click="SaveAsButtonEvent"/>
+        <TextBox x:Name="FileTextBox" HorizontalAlignment="Left" Margin="524,346,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="33"/>
 
     </Grid>
 </Window>
