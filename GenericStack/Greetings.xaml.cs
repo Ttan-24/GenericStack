@@ -16,6 +16,7 @@ using System.Windows.Threading;
 using GenericStackLibrary;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.Win32;
 
 namespace GenericStack
 {
@@ -36,18 +37,6 @@ namespace GenericStack
             InitializeComponent();
 
             MainGrid.Focus();
-
-            //timer.Tick += HandleTick;
-            //timer.Interval = TimeSpan.FromMilliseconds(100);
-            //timer.Start();
-        }
-
-        
-
-        private void HandleTick(object sender, EventArgs e)
-        {
-            //time += 1;
-            //MainTextBlock.Text = time.ToString();
         }
 
         // key is pressed
@@ -133,14 +122,21 @@ namespace GenericStack
         private void OpenButtonEvent(object sender, RoutedEventArgs e)
         {
             // Read the file as one string.
-            string text = System.IO.File.ReadAllText(FileTextBox.Text);
-            MainTextBlock.Text = text;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string text = File.ReadAllText(openFileDialog.FileName);
+                MainTextBlock.Text = text;
+            }
         }
 
         private void SaveAsButtonEvent(object sender, RoutedEventArgs e)
         {
-            File.WriteAllTextAsync(FileTextBox.Text, MainTextBlock.Text);
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                File.WriteAllTextAsync(saveFileDialog.FileName, MainTextBlock.Text);
+            }
         }
     }
 }
