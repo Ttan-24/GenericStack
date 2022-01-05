@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenericStackLibrary
 {
-	class GenericStackClass<T>
+    public class GenericStackClass<T>
 	{
 		public T[] arr = new T[50];
 		public int countIndex = 0;
