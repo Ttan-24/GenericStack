@@ -1,24 +1,46 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace GenericStackLibrary
 {
-	public class GenericStackClass<T>
+    public class GenericStackClass<T>
 	{
-		/* Class Description
-		 * This class is a Last-In/First-Out (LIFO) stack
-		 * implemented with a generic type (T)
-		 */
+		/// <summary>
+		/// This classs is a Last-In/First-Out (LIFO) stack
+		/// implemented with a generic type (T)
+		/// 
+		/// It also implements the IDisplayable interface
+		/// which is used to store generic displayable
+		/// stacks.
+		/// </summary>
+
 
 		///// Member Data /////
-		public T[] arr = new T[50];
+		protected const int maxSize = 1000;
+		public T[] arr = new T[maxSize];
 		public int countIndex = 0;
+
+		///// Constructors /////
+		// Default constructor 
+		public GenericStackClass()
+		{
+		}
+		// Copy Constructor
+		public GenericStackClass(GenericStackClass<T> toCloneFrom)
+		{
+			for (int i = 0; i < maxSize; i++)
+			{
+				if (toCloneFrom.get(i) != null)
+				{
+					push(toCloneFrom.get(i));
+				}
+			}
+		}
 
 		///// Member Functions /////
 		// Push new values to stack
 		public void push(T value)
 		{
-			if (countIndex > 49)
+			if (countIndex > maxSize-1)
 			{
 				throw new IndexOutOfRangeException("Index out of bounds! Stack is full");
 			}

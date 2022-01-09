@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-//using System.Windows.Forms;
 
 
 namespace GenericStack
@@ -63,7 +62,6 @@ namespace GenericStack
         private void printButtonEvent(object sender, RoutedEventArgs e)
         {
             // Create print dialog
-            //DeviceManager.Print(MainTextBlock.Text, "C:\\Users\\User\\Documents\\GitHub\\GenericStack\\BigBoingus.txt");
             DeviceManager.PrintPDF(MainTextBlock.Text, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         }
     }
