@@ -7,10 +7,18 @@ namespace GenericStack
     // stack handler
     public class StackHandler
     {
+        /* Class Description
+	     * This class is for handling the stack which
+	     * reads into the main text block.
+	     */
+
+        ///// Member Variables /////
         public static GenericStackClass<char> myStack = new GenericStackClass<char>();
         public static GenericStackClass<char> memoryStack = new GenericStackClass<char>();
 
-        public static void Clear(TextBlock textBlock)
+        ///// Member Functions /////
+        // Clears the stack
+        public static void clear(TextBlock textBlock)
         {
 
             while (!myStack.isEmpty())
@@ -18,11 +26,10 @@ namespace GenericStack
                 // clear all the text in the text editor
                 myStack.pop();
             }
-            // print the whole stack 
-            textBlock.Text = myStack.toString();
         }
 
-        public static void CltrlZ ()
+        // Undoes the previously entered word in the stack
+        public static void cltrlZ ()
         {
             while (myStack.top() != ' ' && myStack.size() > 1)
             {
@@ -34,7 +41,8 @@ namespace GenericStack
             myStack.pop();
         }
 
-        public static void CltrlY ()
+        // Redoes the previously undone word in the stack
+        public static void cltrlY ()
         {
             myStack.push(memoryStack.top());
             memoryStack.pop();

@@ -2,13 +2,17 @@
 using Microsoft.Win32;
 
 namespace GenericStack
-{
-    // file handler
+{  
     public static class FileHandler
     {
-        public static string Open()
+        /* Class Description
+	     * This class is for handling file opening and saving
+	     */
+
+        // Opens a file using a user dialog
+        public static string open()
         {
-            // Read the file as one string.
+            // Read the file as string.
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
@@ -17,8 +21,8 @@ namespace GenericStack
             }
             return "";
         }
-
-        public static void SaveAs(string textInFile)
+        // Saves a file using a user dialog
+        public static void saveAs(string textInFile)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             if (saveFileDialog.ShowDialog() == true)

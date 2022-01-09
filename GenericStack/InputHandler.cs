@@ -5,57 +5,75 @@ using System.Diagnostics;
 
 namespace GenericStack
 {
-    // input handler
     public static class InputHandler
-    { 
+    {
+        /* Class Description
+         * This class is a Last-In/First-Out (LIFO) stack
+         * implemented with a generic type (T)
+         */
+        ///// Member Data /////
         static bool checkControlKey;
 
-        public static void Input(KeyEventArgs e, TextBlock mytext, GenericStackClass<char> myStack, GenericStackClass<char> memoryStack)
+        ///// Member Functions /////
+        // Handles general key press input from the keyboard
+        public static void Input(Key key, TextBlock mytext)
         {
 
-            Trace.WriteLine(e.Key.ToString());
+            Trace.WriteLine(key.ToString());
 
             // if control is pressed then set boolean to true allowing you to press control z later
-            if (e.Key.ToString() == "LeftCtrl")
+            if (key.ToString() == "LeftCtrl")
             {
                 checkControlKey = true;
             }
             else if (checkControlKey)
             {
                 // control z press for undo and redo
-                if (e.Key.ToString() == "Z")
+                if (key.ToString() == "Z")
                 {
-                    StackHandler.CltrlZ();
+                    StackHandler.cltrlZ();
 
                 }
-                if (e.Key.ToString() == "Y")
+                if (key.ToString() == "Y")
                 {
-                    StackHandler.CltrlY();
+                    StackHandler.cltrlY();
                 }
             }
-            else if (e.Key.ToString() == "Space")
+            else if (key.ToString() == "Space")
             {
-                myStack.push(' ');
+                StackHandler.myStack.push(' ');
             }
-            else if (e.Key.ToString() == "Back")
+            else if (key.ToString() == "Back")
             {
-                myStack.pop();
+                StackHandler.myStack.pop();
             }
             else
             {
-                // Normal characters
-                char character = e.Key.ToString()[0];
-                myStack.push(character);
+                HandleRegularKeypress(key);
             }
 
             // print the whole stack
-            mytext.Text = myStack.toString();
+            mytext.Text = StackHandler.myStack.toString();
         }
 
-        // key is released
-        public static void KeyUp(KeyEventArgs e)
+        public static void HandleRegularKeypress(Key key)
         {
-            if (e.Key.ToString() == "LeftCtrl")
+            // Normal characters
+            char character = key.ToString()[0];
+            try
+            {
+                StackHandler.myStack.push(character);
+            }
+            catch (System.IndexOutOfRangeException exception)
+            {
+                throw new System.IndexOutOfRangeException("Stack is full and cannot accept further input");
+            }
+        }
+
+        // Handles key depresses
+        public static void KeyUp(Key key)
+        {
+            if (key.ToString() == "LeftCtrl")
             {
                 checkControlKey = false;
             }

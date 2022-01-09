@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
+//using System.Windows.Forms;
+
 
 namespace GenericStack
 {
@@ -8,6 +11,7 @@ namespace GenericStack
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Initialise main window component
         public MainWindow()
         {
             InitializeComponent();
@@ -15,33 +19,52 @@ namespace GenericStack
             MainGrid.Focus();
         }
 
-        // key is pressed
-        private void HandleKey(object sender, KeyEventArgs e)
+        // Handle keypresses via InputHandler
+        private void handleKey(object sender, KeyEventArgs e)
         {
-            InputHandler.Input(e, MainTextBlock, StackHandler.myStack, StackHandler.memoryStack);
+            try
+            {
+                InputHandler.Input(e.Key, MainTextBlock);
+            }
+            catch (IndexOutOfRangeException exception)
+            {
+                ErrorTextBox.Text = exception.ToString();
+            }
         }
 
-        // key is released
-        private void MainGrid_KeyUp(object sender, KeyEventArgs e)
+        // Handle key releases via InputHandler
+        private void mainGrid_KeyUp(object sender, KeyEventArgs e)
         {
-            InputHandler.KeyUp(e);
+            InputHandler.KeyUp(e.Key);
         }
 
-        private void ClearButtonEvent(object sender, RoutedEventArgs e)
+        // Clear MainTextBlock
+        private void clearButtonEvent(object sender, RoutedEventArgs e)
         {
-            StackHandler.Clear(MainTextBlock);
+            StackHandler.clear(MainTextBlock);
+            MainTextBlock.Text = StackHandler.myStack.toString();
             MainGrid.Focus(); 
         }
 
-        private void OpenButtonEvent(object sender, RoutedEventArgs e)
+        // Open text from a file and fill MainTextBlock
+        private void openButtonEvent(object sender, RoutedEventArgs e)
         {
             // Read the file as one string.
-            MainTextBlock.Text = FileHandler.Open(); 
+            MainTextBlock.Text = FileHandler.open(); // Exception here
         }
 
-        private void SaveAsButtonEvent(object sender, RoutedEventArgs e)
+        // Save MainTextBlock text in a text file
+        private void saveAsButtonEvent(object sender, RoutedEventArgs e)
         {
-            FileHandler.SaveAs(MainTextBlock.Text);
+            FileHandler.saveAs(MainTextBlock.Text);
+        }
+
+        // Print MainTextBlock text (as a PDF or open a dialog)
+        private void printButtonEvent(object sender, RoutedEventArgs e)
+        {
+            // Create print dialog
+            //DeviceManager.Print(MainTextBlock.Text, "C:\\Users\\User\\Documents\\GitHub\\GenericStack\\BigBoingus.txt");
+            DeviceManager.PrintPDF(MainTextBlock.Text, Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
         }
     }
 }

@@ -6,11 +6,13 @@
         xmlns:local="clr-namespace:GenericStack"
         mc:Ignorable="d"
         Title="Greetings" Height="450" Width="800">
-    <Grid x:Name="MainGrid" Focusable="True" KeyDown="HandleKey" KeyUp="MainGrid_KeyUp">
-        <TextBlock x:Name="MainTextBlock" HorizontalAlignment="Center" Height="230" Text="Hi This is my Stack Program" TextWrapping="Wrap" VerticalAlignment="Top" Width="622" Margin="0,70,0,0"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="141,322,0,0" VerticalAlignment="Top" Height="46" Width="83" Click="ClearButtonEvent"/>
-        <Button Content="Open" HorizontalAlignment="Left" Margin="331,322,0,0" VerticalAlignment="Top" Width="83" Height="47" Click="OpenButtonEvent"/>
-        <Button Content="Save as" HorizontalAlignment="Left" Margin="526,322,0,0" VerticalAlignment="Top" Width="83" Height="47" Click="SaveAsButtonEvent" RenderTransformOrigin="0.511,-0.398"/>
+    <Grid x:Name="MainGrid" Focusable="True" KeyDown="handleKey" KeyUp="mainGrid_KeyUp">
+        <TextBlock x:Name="MainTextBlock" HorizontalAlignment="Center" Height="48" Text="Hi This is my Stack Program" TextWrapping="Wrap" VerticalAlignment="Top" Width="670" Margin="0,70,0,0"/>
+        <Button Content="Clear" HorizontalAlignment="Left" Margin="65,322,0,0" VerticalAlignment="Top" Height="46" Width="83" Click="clearButtonEvent" RenderTransformOrigin="-0.409,0.552"/>
+        <Button Content="Open" HorizontalAlignment="Left" Margin="206,322,0,0" VerticalAlignment="Top" Width="83" Height="47" Click="openButtonEvent"/>
+        <Button Content="Save as" HorizontalAlignment="Left" Margin="346,322,0,0" VerticalAlignment="Top" Width="84" Height="47" Click="saveAsButtonEvent" RenderTransformOrigin="0.511,-0.398"/>
+        <Button Content="Print" HorizontalAlignment="Left" Margin="489,322,0,0" VerticalAlignment="Top" Width="84" Height="47" Click="printButtonEvent" RenderTransformOrigin="0.511,-0.398"/>
+        <TextBlock x:Name="ErrorTextBox" HorizontalAlignment="Center" Height="143" Text="Errors Go Here" TextWrapping="Wrap" VerticalAlignment="Top" Width="670" Margin="0,134,0,0"/>
 
     </Grid>
 </Window>
