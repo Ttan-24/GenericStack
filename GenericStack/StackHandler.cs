@@ -7,16 +7,20 @@ namespace GenericStack
     // stack handler
     public class StackHandler
     {
-        /* Class Description
-	     * This class is for handling the stack which
-	     * reads into the main text block.
-	     */
+        /// <summary>
+        /// Class Description
+        /// This class is for handling the stack
+        /// which reads into the main text block
+        /// </summary>
+
 
         ///// Member Variables /////
         public static GenericStackClass<char> myStack = new GenericStackClass<char>();
         public static GenericStackClass<char> memoryStack = new GenericStackClass<char>();
 
+
         ///// Member Functions /////
+        
         // Clears the stack
         public static void clear(TextBlock textBlock)
         {

@@ -5,14 +5,15 @@ namespace GenericStack
 {  
     public static class FileHandler
     {
-        /* Class Description
-	     * This class is for handling file opening and saving
-	     */
+        /// <summary>
+        /// Class Description
+        /// This class is for handling file opening and saving
+        /// </summary>
 
         // Opens a file using a user dialog
         public static string open()
         {
-            // Read the file as string.
+            // Read the file as string
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {

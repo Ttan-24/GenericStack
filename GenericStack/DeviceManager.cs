@@ -11,8 +11,19 @@ namespace GenericStack
 {
     public class DeviceManager
     {
+        /// <summary>
+        /// Device manager for handling hardware devices
+        /// Currently used for printing services for the
+        /// stack in the WPF document
+        /// </summary>
+
+
+        ///// Member Variables /////
         public static string mText;
 
+
+        ///// Member Functions /////
+        
         // Function for printing using a printer dialog
         public static void Print(string text, string path)
         {
