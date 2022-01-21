@@ -16,8 +16,8 @@ namespace GenericStackLibrary
 
 		///// Member Data /////
 		protected const int maxSize = 1000;
-		public T[] arr = new T[maxSize];
-		public int countIndex = 0;
+		private T[] arr = new T[maxSize];
+		private int countIndex = 0;
 
 		///// Constructors /////
 		// Default constructor 

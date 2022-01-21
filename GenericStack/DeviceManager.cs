@@ -18,13 +18,13 @@ namespace GenericStack
 
 
         ///// Member Variables /////
-        public static string mText;
+        private static string mText;
 
 
         ///// Member Functions /////
         
         // Function for printing using a printer dialog
-        public static void Print(string text, string path)
+        private static void Print(string text, string path)
         {
             // Create print dialog
             PrintDialog printDialog = new PrintDialog();
@@ -63,7 +63,7 @@ namespace GenericStack
         }
 
         // Event handler function for PDF printing
-        public static void Print_Page(object sender, PrintPageEventArgs e)
+        private static void Print_Page(object sender, PrintPageEventArgs e)
         {
             // Create font
             Font font = new Font("Arial", 16);

@@ -50,12 +50,14 @@ namespace GenericStack
         {
             // Read the file as one string.
             MainTextBlock.Text = FileHandler.open(); // Exception here
+            MainGrid.Focus();
         }
 
         // Save MainTextBlock text in a text file
         private void saveAsButtonEvent(object sender, RoutedEventArgs e)
         {
             FileHandler.saveAs(MainTextBlock.Text);
+            MainGrid.Focus();
         }
 
         // Print MainTextBlock text (as a PDF or open a dialog)

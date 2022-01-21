@@ -11,7 +11,7 @@ namespace GenericStack
          * implemented with a generic type (T)
          */
         ///// Member Data /////
-        static bool checkControlKey;
+        private static bool checkControlKey;
 
         ///// Member Functions /////
         // Handles general key press input from the keyboard
